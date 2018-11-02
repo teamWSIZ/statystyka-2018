@@ -83,8 +83,11 @@ public class ChartControler {
                 lock.unlock();
             }
 
-            for (int i = 0; i < 100; i++)
-                data.fill(Generator.simple(), 1);
+            for (int i = 0; i < 10; i++) {
+
+                data.fill(Generator.gen2(), 1);
+
+            }
 
             data.normalize();
 
@@ -108,7 +111,7 @@ public class ChartControler {
             });
 
             try {
-                Thread.sleep(100);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
