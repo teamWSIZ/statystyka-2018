@@ -36,4 +36,8 @@ public class Generator {
         return number;
 
     }
+
+    public static double gen2a(){
+        return Math.sqrt(Math.random());
+    }
 }

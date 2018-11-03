@@ -85,7 +85,7 @@ public class ChartControler {
 
             for (int i = 0; i < 10; i++) {
 
-                data.fill(Generator.gen2(), 1);
+                data.fill(Generator.gen2a(), 1);
 
             }
 
