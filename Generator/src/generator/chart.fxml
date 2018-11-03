@@ -24,10 +24,14 @@
             <Button mnemonicParsing="false" onAction="#stopGenerator" prefHeight="27.0" prefWidth="69.0" text="Stop" />
          </children>
       </HBox>
-       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5">
+       <HBox spacing="5">
            <children>
-               <Label text="x2 gen1" fx:id="x2_gen1" />
-               <Label text="x2 gen2" fx:id="x2_gen2" />
+                <Label alignment="BASELINE_RIGHT" text="x2 gen1" fx:id="x2_gen1" />
+           </children>
+       </HBox>
+       <HBox spacing="5">
+           <children>
+               <Label alignment="BASELINE_RIGHT" text="x2 gen2" fx:id="x2_gen2" />
            </children>
        </HBox>
    </children>

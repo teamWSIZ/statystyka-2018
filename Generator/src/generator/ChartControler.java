@@ -10,6 +10,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.control.Label;
 
 import java.awt.*;
+import java.text.DecimalFormat;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.Condition;
 
@@ -116,6 +117,10 @@ public class ChartControler {
             data.normalize();
             data1.normalize();
 
+            Double x2_gen1_number = x2(data);
+            Double x2_gen2_number = x2(data1);
+
+            DecimalFormat df2 = new DecimalFormat("#.####");
 
             Platform.runLater(new Runnable() {
                 @Override
@@ -144,6 +149,11 @@ public class ChartControler {
 
                     randomChart.getData().add(series);
                     randomChart.getData().add(series1);
+
+                    x2_gen1.setText("gen 1:"+df2.format(x2_gen1_number));
+                    x2_gen2.setText("gen 2:"+df2.format(x2_gen2_number));
+
+
                 }
             });
 
