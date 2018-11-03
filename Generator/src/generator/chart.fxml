@@ -3,15 +3,16 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.ScatterChart?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="vboxPane" alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="generator.ChartControler">
+<VBox fx:id="vboxPane" alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="generator.ChartControler">
    <children>
       <ScatterChart fx:id="randomChart" prefHeight="400.0" prefWidth="592.0" title="Generated data" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <xAxis>
-          <NumberAxis fx:id="xAxis" label="X" side="BOTTOM" upperBound="1.0" />
+          <NumberAxis label="X" side="BOTTOM" upperBound="1.0" fx:id="xAxis" />
         </xAxis>
         <yAxis>
           <NumberAxis fx:id="yAxis" label="Y" side="LEFT" upperBound="2.0" />
@@ -23,5 +24,11 @@
             <Button mnemonicParsing="false" onAction="#stopGenerator" prefHeight="27.0" prefWidth="69.0" text="Stop" />
          </children>
       </HBox>
+       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5">
+           <children>
+               <Label text="x2 gen1" fx:id="x2_gen1" />
+               <Label text="x2 gen2" fx:id="x2_gen2" />
+           </children>
+       </HBox>
    </children>
 </VBox>

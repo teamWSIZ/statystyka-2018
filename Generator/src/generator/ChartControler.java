@@ -7,7 +7,9 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.control.Label;
 
+import java.awt.*;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.Condition;
 
@@ -21,6 +23,13 @@ public class ChartControler {
 
     @FXML
     private NumberAxis yAxis;
+
+    @FXML
+    private Label x2_gen1;
+
+    @FXML
+    private Label x2_gen2;
+
 
     private Runnable runnable = new Runnable() {
         @Override
@@ -65,6 +74,17 @@ public class ChartControler {
         lock.unlock();
     }
 
+    public double x2(Data data){
+        double sum = 0;
+
+        for(int i=0;i<data.getNoBins();i++){
+            double s = data.getDataNorm()[i] - data.getBinX(i);
+            sum+=s*s;
+        }
+
+        return sum;
+    }
+
     public void generateData() {
         XYChart.Series series = new XYChart.Series();
         XYChart.Series series1 = new XYChart.Series();
@@ -106,7 +126,7 @@ public class ChartControler {
 
                     for (int i = 0; i < data.getNoBins(); i++) {
 
-                        XYChart.Data point = new XYChart.Data(data.getBinX(i), data.getDataNorm()[i]);
+                        XYChart.Data point = new XYChart.Data(data.getBinX(i), data.getDataNorm()[i]/data.getBinX(i));
                         point.setNode(new Circle(2, Color.ORANGE));
 
                         series.getData().add(point);
@@ -114,7 +134,7 @@ public class ChartControler {
 
                     for (int i = 0; i < data1.getNoBins(); i++) {
 
-                        XYChart.Data point = new XYChart.Data(data1.getBinX(i), data1.getDataNorm()[i]);
+                        XYChart.Data point = new XYChart.Data(data1.getBinX(i), data1.getDataNorm()[i]/data1.getBinX(i));
                         point.setNode(new Circle(2, Color.TEAL));
 
                         series1.getData().add(point);
