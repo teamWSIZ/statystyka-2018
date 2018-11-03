@@ -26,11 +26,12 @@ public class Generator {
     }
 
     public static double gen2(){
-        double number,y;
+        double number,y,x;
 
         do {
             number = Math.random();
-            y = Math.random();
+            x = Math.random();
+            y = x;
         }while(number<y);
 
         return number;
@@ -38,6 +39,9 @@ public class Generator {
     }
 
     public static double gen2a(){
-        return Math.sqrt(Math.random());
+
+        double u = Math.random();
+
+        return Math.sqrt(u);
     }
 }

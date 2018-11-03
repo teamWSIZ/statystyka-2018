@@ -36,11 +36,12 @@ public class ChartControler {
     private boolean generate = false;
 
 
-    XYChart.Series series;
+    XYChart.Series series, series1;
 
     @FXML
     public void initialize() {
         series = new XYChart.Series();
+        series1 = new XYChart.Series();
 
         randomChart.setAnimated(false);
         randomChart.setLegendVisible(false);
@@ -66,10 +67,12 @@ public class ChartControler {
 
     public void generateData() {
         XYChart.Series series = new XYChart.Series();
+        XYChart.Series series1 = new XYChart.Series();
 
         series.setName("Generated data");
 
         Data data = new Data(100, 0, 1);
+        Data data1 = new Data(100,0,1);
 
         do {
             lock.lock();
@@ -85,17 +88,21 @@ public class ChartControler {
 
             for (int i = 0; i < 10; i++) {
 
-                data.fill(Generator.gen2a(), 1);
+                data.fill(Generator.gen2(), 1);
+                data1.fill(Generator.gen2a(), 1);
 
             }
 
             data.normalize();
+            data1.normalize();
+
 
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
 
                     series.getData().clear();
+                    series1.getData().clear();
 
                     for (int i = 0; i < data.getNoBins(); i++) {
 
@@ -105,8 +112,18 @@ public class ChartControler {
                         series.getData().add(point);
                     }
 
+                    for (int i = 0; i < data1.getNoBins(); i++) {
+
+                        XYChart.Data point = new XYChart.Data(data1.getBinX(i), data1.getDataNorm()[i]);
+                        point.setNode(new Circle(2, Color.TEAL));
+
+                        series1.getData().add(point);
+                    }
+
                     randomChart.getData().clear();
+
                     randomChart.getData().add(series);
+                    randomChart.getData().add(series1);
                 }
             });
 
