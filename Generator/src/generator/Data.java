@@ -24,7 +24,7 @@ public class Data {
     }
 
     public void fill(double number, double weight) {
-        if (number <= min && number > max)
+        if (number <= min || number > max)
             return;
 
         double dx = (max - min) / noBins;

@@ -25,13 +25,17 @@ public class Generator {
         return 0;
     }
 
+    public static double f(double x){
+        return x;
+    }
+
     public static double gen2(){
         double number,y,x;
 
         do {
             number = Math.random();
             x = Math.random();
-            y = x;
+            y = Generator.f(x);
         }while(number<y);
 
         return number;
@@ -42,6 +46,6 @@ public class Generator {
 
         double u = Math.random();
 
-        return Math.sqrt(u);
+        return 2*Math.sqrt(u);
     }
 }
