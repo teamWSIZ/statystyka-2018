@@ -17,17 +17,17 @@ public class Main {
         data.add(10.1);
     }
 
-    private static Double obliczSrednia(Double [] data){
-        if(data==null||data.length==0)
-            return null;
+    private static Double obliczSrednia(ArrayList<Double> data){
+
+        if(data==null||data.size()==0)
+            return 0.0;
 
         Double suma = 0.0;
 
+        for(Double element : data)
+            suma+=element;
 
-        for(int i=0;i<data.length;i++)
-            suma+=data[i];
-
-        return suma/data.length;
+        return suma/data.size();
     }
 
     private static Double obliczMedianę(Double [] data){
@@ -52,32 +52,32 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList<Double> data1 = new ArrayList<Double>();
-        dodajDane(data1);
+        ArrayList<Double> data = new ArrayList<Double>();
+        dodajDane(data);
 
-        for(int i=0;i<data1.size();i++)
-            System.out.println(data1.get(i));
+        for(int i=0;i<data.size();i++)
+            System.out.println(data.get(i));
 
-        for(Double element : data1){
+        for(Double element : data){
             System.out.println(element);
         }
 
-        Collections.sort(data1);
+        Collections.sort(data);
 
 
 
         System.out.println("_____________________________");
 
 
-        data1.add(40.0);
+        data.add(40.0);
 
-        for(int i=0;i<data1.size();i++)
-            System.out.println(data1.get(i));
+        for(int i=0;i<data.size();i++)
+            System.out.println(data.get(i));
 
-        System.out.println("Maksymalna wartość: "+Collections.max(data1));
+        System.out.println("Maksymalna wartość: "+Collections.max(data));
 
 
-        //System.out.println("Średnia wynosi:"+obliczSrednia(data));
+        System.out.println("Średnia wynosi:"+obliczSrednia(data));
         //System.out.println("Mediana wynosi:"+obliczMedianę(data));
 
 

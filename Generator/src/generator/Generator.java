@@ -46,6 +46,6 @@ public class Generator {
 
         double u = Math.random();
 
-        return 2*Math.sqrt(u);
+        return -Math.log(1-u);
     }
 }
