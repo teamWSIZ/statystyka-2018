@@ -60,13 +60,28 @@ public class Main {
         for(Double element : data){
             System.out.println(element);
         }
-        
+
         System.out.println("Średnia wynosi:"+obliczSrednia(data));
         System.out.println("Mediana wynosi:"+obliczMedianę(data));
 
         data.add(50.0);
 
-        Collections.sort(data);
+
+        Collections.sort(data, new Comparator<Double>() {
+            @Override
+            public int compare(Double o1, Double o2) {
+                if(o1<o2)
+                    return 1;
+
+                if(o1==o2)
+                    return 0;
+
+                if(o1>o2)
+                    return -1;
+
+                return 0;
+            }
+        });
 
         for(Double element : data){
             System.out.println(element);
