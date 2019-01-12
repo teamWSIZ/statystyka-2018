@@ -30,20 +30,20 @@ public class Main {
         return suma/data.size();
     }
 
-    private static Double obliczMedianę(Double [] data){
+    private static Double obliczMedianę(ArrayList<Double> data){
 
-        if(data.length==1)
-            return data[0];
+        if(data.size()==1)
+            return data.get(0);
 
-        Arrays.sort(data);
+        Collections.sort(data);
 
         Double mediana;
 
-        if(data.length/2.0==Math.round(data.length/2.0)){
-            mediana = (data[(int)(data.length/2.0)-1]+data[(int)(data.length/2.0)])/2.0;
+        if(data.size()/2.0==Math.round(data.size()/2.0)){
+            mediana = (data.get((int)(data.size()/2.0)-1)+data.get((int)(data.size()/2.0)))/2.0;
 
         }else{
-            mediana = data[(int)(data.length/2.0)];
+            mediana = data.get((int)(data.size()/2.0));
         }
 
 
@@ -55,37 +55,25 @@ public class Main {
         ArrayList<Double> data = new ArrayList<Double>();
         dodajDane(data);
 
-        for(int i=0;i<data.size();i++)
-            System.out.println(data.get(i));
+        Collections.sort(data);
+
+        for(Double element : data){
+            System.out.println(element);
+        }
+        
+        System.out.println("Średnia wynosi:"+obliczSrednia(data));
+        System.out.println("Mediana wynosi:"+obliczMedianę(data));
+
+        data.add(50.0);
+
+        Collections.sort(data);
 
         for(Double element : data){
             System.out.println(element);
         }
 
-        Collections.sort(data);
-
-
-
-        System.out.println("_____________________________");
-
-
-        data.add(40.0);
-
-        for(int i=0;i<data.size();i++)
-            System.out.println(data.get(i));
-
-        System.out.println("Maksymalna wartość: "+Collections.max(data));
-
-
         System.out.println("Średnia wynosi:"+obliczSrednia(data));
-        //System.out.println("Mediana wynosi:"+obliczMedianę(data));
-
-
-
-        //System.out.println("Średnia wynosi:"+obliczSrednia(data));
-        //System.out.println("Mediana wynosi:"+obliczMedianę(data));
-
-        //obliczMedianę(data);
+        System.out.println("Mediana wynosi:"+obliczMedianę(data));
     }
 }
 
