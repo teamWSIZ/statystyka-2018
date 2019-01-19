@@ -4,7 +4,9 @@ import java.util.*;
 
 public class Main {
 
-    private static void dodajDane(ArrayList<Double> data, int no){
+    Data mData = new Data(100,0,1);
+
+    private static void dodajDane(ArrayList<Double> data, long no){
 
         for(int i=0;i<no;i++)
             data.add(Generator.gen());
@@ -43,21 +45,27 @@ public class Main {
         return mediana;
     }
 
-    public static void main(String[] args) {
-
-        ArrayList<Double> data = new ArrayList<Double>();
-        dodajDane(data,1000);
-
-        Collections.sort(data);
-
+    public static void wyswietlDane(ArrayList<Double> data){
         for(Double element : data){
             System.out.println(element);
         }
+    }
+
+    public static void main(String[] args) {
+
+        ArrayList<Double> data = new ArrayList<Double>();
+        dodajDane(data,10);
+
+        //Collections.sort(data);
+
+        wyswietlDane(data);
 
         System.out.println("Średnia wynosi:"+obliczSrednia(data));
         System.out.println("Mediana wynosi:"+obliczMedianę(data));
 
         data.add(50.0);
+
+
 
 
         Collections.sort(data, new Comparator<Double>() {
@@ -75,12 +83,10 @@ public class Main {
                 return 0;
             }
         });
-
-        /*for(Double element : data){
-            System.out.println(element);
-        }*/
-
+        
         System.out.println("Po dodaniu 50 do tablicy:");
+
+        wyswietlDane(data);
 
         System.out.println("Średnia wynosi:"+obliczSrednia(data));
         System.out.println("Mediana wynosi:"+obliczMedianę(data));
