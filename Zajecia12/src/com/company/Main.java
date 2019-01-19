@@ -46,7 +46,7 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Double> data = new ArrayList<Double>();
-        dodajDane(data,100);
+        dodajDane(data,1000);
 
         Collections.sort(data);
 
