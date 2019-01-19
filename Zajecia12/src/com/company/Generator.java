@@ -17,4 +17,13 @@ public class Generator {
         return number;
 
     }
+
+    public static double gen2(){
+        double x = Math.random();
+
+        if(x>0.5)
+            return 10-Math.random();
+        else
+            return 10+Math.random();
+    }
 }

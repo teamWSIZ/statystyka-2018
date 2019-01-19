@@ -9,7 +9,7 @@ public class Main {
     private static void dodajDane(ArrayList<Double> data, long no){
 
         for(int i=0;i<no;i++)
-            data.add(Generator.gen());
+            data.add(Generator.gen2());
     }
 
     private static Double obliczSrednia(ArrayList<Double> data){
@@ -51,10 +51,20 @@ public class Main {
         }
     }
 
+    public static void wyswietlOdchylenie(ArrayList<Double> data){
+        double srednia = obliczSrednia(data);
+
+        for(Double element: data){
+            double odchylenie = (srednia-element)*(srednia-element);
+
+            System.out.println(element+" odchylenie:"+odchylenie);
+        }
+    }
+
     public static void main(String[] args) {
 
         ArrayList<Double> data = new ArrayList<Double>();
-        dodajDane(data,10);
+        dodajDane(data,100);
 
         //Collections.sort(data);
 
@@ -83,10 +93,11 @@ public class Main {
                 return 0;
             }
         });
-        
+
         System.out.println("Po dodaniu 50 do tablicy:");
 
         wyswietlDane(data);
+        wyswietlOdchylenie(data);
 
         System.out.println("Średnia wynosi:"+obliczSrednia(data));
         System.out.println("Mediana wynosi:"+obliczMedianę(data));
