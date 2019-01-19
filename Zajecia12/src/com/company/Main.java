@@ -61,6 +61,19 @@ public class Main {
         }
     }
 
+    public static double odchylenieStandardowe(ArrayList<Double> data){
+        double srednia = obliczSrednia(data);
+
+        double sumaOdchylen = 0;
+
+        for(Double element: data){
+            double odchylenie = (srednia-element)*(srednia-element);
+            sumaOdchylen+=odchylenie;
+        }
+
+        return Math.sqrt(sumaOdchylen);
+    }
+
     public static void main(String[] args) {
 
         ArrayList<Double> data = new ArrayList<Double>();
@@ -73,7 +86,9 @@ public class Main {
         System.out.println("Średnia wynosi:"+obliczSrednia(data));
         System.out.println("Mediana wynosi:"+obliczMedianę(data));
 
-        data.add(50.0);
+        System.out.println("Odchylenie standardowe wynosi:" + odchylenieStandardowe(data));
+
+        data.add(12.0);
 
 
 
@@ -96,11 +111,13 @@ public class Main {
 
         System.out.println("Po dodaniu 50 do tablicy:");
 
-        wyswietlDane(data);
-        wyswietlOdchylenie(data);
+        //wyswietlDane(data);
+        //wyswietlOdchylenie(data);
 
         System.out.println("Średnia wynosi:"+obliczSrednia(data));
         System.out.println("Mediana wynosi:"+obliczMedianę(data));
+
+        System.out.println("Odchylenie standardowe wynosi:" + odchylenieStandardowe(data));
     }
 }
 
