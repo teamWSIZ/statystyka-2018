@@ -4,17 +4,10 @@ import java.util.*;
 
 public class Main {
 
-    private static void dodajDane(ArrayList<Double> data){
-        data.add(11.0);
-        data.add(11.5);
-        data.add(11.7);
-        data.add(11.0);
-        data.add(10.2);
-        data.add(11.8);
-        data.add(11.4);
-        data.add(11.2);
-        data.add(10.2);
-        data.add(10.1);
+    private static void dodajDane(ArrayList<Double> data, int no){
+
+        for(int i=0;i<no;i++)
+            data.add(Generator.gen());
     }
 
     private static Double obliczSrednia(ArrayList<Double> data){
@@ -53,7 +46,7 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Double> data = new ArrayList<Double>();
-        dodajDane(data);
+        dodajDane(data,100);
 
         Collections.sort(data);
 
@@ -83,9 +76,11 @@ public class Main {
             }
         });
 
-        for(Double element : data){
+        /*for(Double element : data){
             System.out.println(element);
-        }
+        }*/
+
+        System.out.println("Po dodaniu 50 do tablicy:");
 
         System.out.println("Średnia wynosi:"+obliczSrednia(data));
         System.out.println("Mediana wynosi:"+obliczMedianę(data));
