@@ -80,7 +80,7 @@ public class ChartControler {
 
         for(int i=0;i<data.getNoBins();i++){
             double s = data.getDataNorm()[i] - data.getBinX(i);
-            sum+=s*s;
+            sum+=s*s;  
         }
 
         return sum;
@@ -152,7 +152,6 @@ public class ChartControler {
 
                     x2_gen1.setText("gen 1:"+df2.format(x2_gen1_number));
                     x2_gen2.setText("gen 2:"+df2.format(x2_gen2_number));
-
 
                 }
             });
